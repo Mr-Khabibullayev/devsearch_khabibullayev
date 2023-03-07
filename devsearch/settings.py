@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-+9(yd3plr^)tlb5)^s*ix9!ew#*mu=&wkmcg5^ixa-+o(x!wta
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost','127.0.0.1']
 
 
 # Application definition
@@ -29,13 +29,18 @@ INSTALLED_APPS = [
     
     # Installed apps
     
+    'pluralize_pl',
     
     # My apps 
-    'projects.apps.ProjectsConfig'
+    'projects.apps.ProjectsConfig',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+    
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -121,6 +126,8 @@ STATICFILES_DIRS = [
 ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 
 
 
